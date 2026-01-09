@@ -1,3 +1,4 @@
+import CriticScore from "./CriticScore"
 import PlatformIconList from "./PlatformIconList"
 
 
@@ -10,7 +11,11 @@ function GameCard({ game }) {
             </div>
 
             <section className="py-4 px-1">
-                {<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)}/>}
+                <div className="flex justify-between items-center">
+                    {<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />}
+                    <CriticScore score={game.metacritic} />
+                </div>
+
                 <h3 className="text-2xl font-bold text-[#e5e5e5]">{game.name}</h3>
             </section>
         </div>
