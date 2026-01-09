@@ -1,7 +1,7 @@
 
 function GameCardSkeleton() {
     return (
-        <div className="animate-pulse rounded-xl shadow p-4 space-y-4 w-full max-w-sm">
+        <div className="animate-pulse space-y-4 w-full">
 
             {/* Image */}
             <div className="h-40 bg-gray-600 rounded-lg"></div>
