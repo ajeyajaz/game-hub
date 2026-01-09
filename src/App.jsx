@@ -1,3 +1,4 @@
+import GameGrid from "./components/GameGrid"
 import NavBar from "./components/NavBar"
 
 function App() {
@@ -7,15 +8,18 @@ function App() {
 
       {/* nav */}
       <div className="col-span-full">
-        <NavBar/>
+        <NavBar />
       </div>
 
       {/* sideBar */}
       <div className="hidden bg-amber-100 lg:block">
         sidebar
       </div>
+
       {/* main */}
-      <div className="col-span-full bg-amber-300 lg:col-start-2">main</div>
+      <div className="col-span-full lg:col-start-2">
+        <GameGrid/>
+      </div>
     </div>
   )
 }
