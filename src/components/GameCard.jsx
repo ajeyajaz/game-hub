@@ -1,13 +1,13 @@
 import CriticScore from "./CriticScore"
 import PlatformIconList from "./PlatformIconList"
-
+import imageUrl from "../services/image-url"
 
 function GameCard({ game }) {
     return (
         <div className="flex flex-col rounded-md w-full max-w-sm overflow-hidden bg-[#1f1f1f] text-[#a1a1a1]">
 
             <div className="w-full h-50">
-                <img src={game.background_image} alt={game.name} className="w-full h-full object-cover" />
+                <img src={imageUrl(game.background_image)} alt={game.name} className="w-full h-full object-cover" />
             </div>
 
             <section className="py-4 px-1">
