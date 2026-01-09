@@ -1,4 +1,5 @@
 import GameGrid from "./components/GameGrid"
+import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
       </div>
 
       {/* sideBar */}
-      <div className="hidde lg:block">
-        sidebar
+      <div className="hidden lg:block">
+        <GenreList/>
       </div>
 
       {/* main */}

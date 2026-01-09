@@ -1,0 +1,32 @@
+import {useState, useEffect} from 'react'
+import apiClient, { CanceledError } from '../services/api-client';
+
+
+function useData(endpoint) {
+    const [data, setdata] = useState([]);
+    const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const controller = new AbortController();
+        setLoading(true);
+
+        apiClient.get(endpoint, { signal: controller.signal })
+            .then(({ data }) => {
+                setdata(data.results);
+                setLoading(false);
+            })
+            .catch(e => {
+                if (e instanceof CanceledError) return
+                setError(e.message);
+                setLoading(false);
+            })
+        // .finally(()=> setLoading(false))
+
+        return () => controller.abort();
+    }, [])
+
+    return { data, error, isLoading }
+}
+
+export default useData
