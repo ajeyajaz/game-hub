@@ -12,7 +12,7 @@ function App() {
       </div>
 
       {/* sideBar */}
-      <div className="hidden bg-amber-100 lg:block">
+      <div className="hidde lg:block">
         sidebar
       </div>
 
