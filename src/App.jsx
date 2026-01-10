@@ -13,7 +13,7 @@ function App() {
       </div>
 
       {/* sideBar */}
-      <div className="hidden lg:block">
+      <div className="hidden  pl-2 lg:block">
         <GenreList/>
       </div>
 
