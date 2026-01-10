@@ -3,6 +3,6 @@
 @layer base{
 
     body{
-        @apply bg-[#151515] text-white;
+        @apply bg-[#151515] text-white pl-4;
     }
 }

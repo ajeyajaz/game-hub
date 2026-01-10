@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar"
 function App() {
 
   return (
-    <div className="grid border lg: grid-cols-5">
+    <div className="grid lg: grid-cols-5">
 
       {/* nav */}
       <div className="col-span-full">
