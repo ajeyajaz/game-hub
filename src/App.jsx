@@ -1,9 +1,12 @@
+import { useState } from "react"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
 
 function App() {
 
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  
   return (
     <div className="grid lg: grid-cols-5">
 
@@ -14,12 +17,12 @@ function App() {
 
       {/* sideBar */}
       <div className="hidden  pl-2 lg:block">
-        <GenreList/>
+        <GenreList onSelectGenre={(genre)=> setSelectedGenre(genre)}/>
       </div>
 
       {/* main */}
       <div className="col-span-full lg:col-start-2">
-        <GameGrid/>
+        <GameGrid selectedGenre={selectedGenre}/>
       </div>
     </div>
   )

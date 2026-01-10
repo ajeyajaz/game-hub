@@ -1,17 +1,19 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import apiClient, { CanceledError } from '../services/api-client';
 
 
-function useData(endpoint) {
+function useData(endpoint, requestConfig, deps) {
     const [data, setdata] = useState([]);
     const [error, setError] = useState('');
     const [isLoading, setLoading] = useState(false);
+
+    console.log('con', requestConfig, 'deps', deps);
 
     useEffect(() => {
         const controller = new AbortController();
         setLoading(true);
 
-        apiClient.get(endpoint, { signal: controller.signal })
+        apiClient.get(endpoint, { signal: controller.signal,  ...requestConfig })
             .then(({ data }) => {
                 setdata(data.results);
                 setLoading(false);
@@ -24,7 +26,7 @@ function useData(endpoint) {
         // .finally(()=> setLoading(false))
 
         return () => controller.abort();
-    }, [])
+    }, deps ? [...deps] : []);
 
     return { data, error, isLoading }
 }
