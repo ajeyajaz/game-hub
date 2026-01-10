@@ -17,7 +17,7 @@ function App() {
 
       {/* sideBar */}
       <div className="hidden  pl-2 lg:block">
-        <GenreList onSelectGenre={(genre)=> setSelectedGenre(genre)}/>
+        <GenreList onSelectGenre={(genre)=> setSelectedGenre(genre)} selectedGenre={selectedGenre}/>
       </div>
 
       {/* main */}

@@ -7,8 +7,6 @@ function useData(endpoint, requestConfig, deps) {
     const [error, setError] = useState('');
     const [isLoading, setLoading] = useState(false);
 
-    console.log('con', requestConfig, 'deps', deps);
-
     useEffect(() => {
         const controller = new AbortController();
         setLoading(true);
