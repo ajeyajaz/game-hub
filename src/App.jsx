@@ -6,8 +6,10 @@ import PlatformSelector from "./components/PlatformSelector";
 
 function App() {
 
-  const [selectedGenre, setSelectedGenre] = useState(null);
-  
+  // const [selectedGenre, setSelectedGenre] = useState(null);
+  // const [selectedPlatform, setSelectedPlatform] = useState(null);
+  const [gameQuery, setGameQuery] = useState({});
+
   return (
     <div className="grid lg: grid-cols-5">
 
@@ -18,13 +20,16 @@ function App() {
 
       {/* sideBar */}
       <div className="hidden  pl-2 lg:block">
-        <GenreList onSelectGenre={(genre)=> setSelectedGenre(genre)} selectedGenre={selectedGenre}/>
+        <GenreList setGameQuery={(genre) => setGameQuery({...gameQuery, genre})} selectedGenre={gameQuery.genre} />
       </div>
 
       {/* main */}
       <div className="col-span-full lg:col-start-2">
-        <PlatformSelector/>
-        <GameGrid selectedGenre={selectedGenre}/>
+        <PlatformSelector
+          setGameQuery={(platform) => setGameQuery({...gameQuery, platform})}
+          selectedPlatform={gameQuery.platform}
+        />
+        <GameGrid gameQuery={gameQuery} />
       </div>
     </div>
   )

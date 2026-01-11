@@ -1,9 +1,8 @@
-import { useState } from "react";
-import useGenres from "../hooks/UseGenre";
+import useGenres from "../hooks/useGenres";
 import imageUrl from "../services/image-url";
 import Spinner from "./Spinner";
 
-function GenreList({ onSelectGenre, selectedGenre }) {
+function GenreList({ setGameQuery, selectedGenre }) {
     const { data: genres, error, isLoading } = useGenres(); 
 
     if (error) return null;
@@ -18,7 +17,7 @@ function GenreList({ onSelectGenre, selectedGenre }) {
                     </div>
                     <button 
                         className={selectedGenre?.id === g.id ? ' text-white font-semibold transition-all duration-300' : ''}
-                        onClick={() => onSelectGenre(g)}
+                        onClick={() => setGameQuery(g)}
                     >
                         {g.name}
                     </button>

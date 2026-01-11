@@ -3,10 +3,11 @@ import PlatformIconList from "./PlatformIconList"
 import imageUrl from "../services/image-url"
 
 function GameCard({ game }) {
+
     return (
         <>
             <div className="w-full h-50">
-                <img src={imageUrl(game.background_image)} alt={game.name} className="w-full h-full object-cover" />
+                <img src={game.background_image && imageUrl(game.background_image)} alt={game.name} className="w-full h-full object-cover" />
             </div>
 
             <section className="py-4 px-1">
