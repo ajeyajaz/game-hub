@@ -2,6 +2,7 @@ import { useState } from "react"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
+import PlatformSelector from "./components/PlatformSelector";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
       {/* main */}
       <div className="col-span-full lg:col-start-2">
+        <PlatformSelector/>
         <GameGrid selectedGenre={selectedGenre}/>
       </div>
     </div>
