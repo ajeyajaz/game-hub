@@ -12,7 +12,7 @@ function GameCard({ game }) {
 
             <section className="py-4 px-1">
                 <div className="flex justify-between items-center">
-                    {<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />}
+                    {<PlatformIconList platforms={game.parent_platforms?.map(p => p.platform)} />}
                     <CriticScore score={game.metacritic} />
                 </div>
 

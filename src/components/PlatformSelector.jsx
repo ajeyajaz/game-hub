@@ -1,40 +1,24 @@
-import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 import usePlatforms from "../hooks/usePlatforms";
+import DropDown from './DropDown'
 
 function PlatformSelector({ setGameQuery, selectedPlatform }) {
-    const [open, setOpen] = useState(false);
     const { data: platforms, error } = usePlatforms();
 
     if (error) return null
 
-    const handleSelect = (platform) => {
-        setGameQuery(platform);
-        setOpen(false);
-    }
-
     return (
-        <div className="relative w-30 bg-[#1f1f1f] py-1 px-2 rounded-sm mb-3 text-xs">
-            <button className="flex gap-1 items-center font-semibold cursor-pointer" onClick={() => setOpen(!open)}>
-                {selectedPlatform ? selectedPlatform.name : 'Platform'}
-                <FaChevronDown className="w-3 h-3" />
-            </button>
+        <>
+            <DropDown
+                className=" bg-[#1f1f1f] py-1 px-2 rounded-sm mb-3 text-xs"
+                menuClassName="w-50 left-0 right-0 z-10 mt-2  bg-[#1f1f1f] rounded-sm"
+                itemClassName="py-1 px-2 hover:bg-black/10"
+                onSelect={setGameQuery}
 
-            {open && (
-                <ul className="absolute w-50 left-0 right-0 z-10 mt-2  bg-[#1f1f1f] rounded-sm overflow-hidden cursor-pointer">
-                    {platforms.map(p => (
-                        <li
-                            className="py-1 px-2 hover:bg-black/10"
-                            key={p.id}
-                            onClick={() => handleSelect(p)}
-                        >
-                            {p.name}
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-
+                options={platforms.map(p => ({ id: p.id, label: p.name, value: p.slug }))}
+            >
+                {selectedPlatform ? selectedPlatform.label : 'Platforms'}
+            </DropDown>
+        </>
     )
 }
 

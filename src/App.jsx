@@ -3,11 +3,9 @@ import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
 import PlatformSelector from "./components/PlatformSelector";
+import SortSelector from "./components/SortSelector";
 
 function App() {
-
-  // const [selectedGenre, setSelectedGenre] = useState(null);
-  // const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [gameQuery, setGameQuery] = useState({});
 
   return (
@@ -25,10 +23,15 @@ function App() {
 
       {/* main */}
       <div className="col-span-full lg:col-start-2">
-        <PlatformSelector
+        <div className="flex gap-1">
+          <PlatformSelector
           setGameQuery={(platform) => setGameQuery({...gameQuery, platform})}
           selectedPlatform={gameQuery.platform}
         />
+          <SortSelector  
+            setGameQuery={(ordering)=> setGameQuery({...gameQuery, ordering})}
+            selectedOrdering = {gameQuery.ordering} />
+        </div>
         <GameGrid gameQuery={gameQuery} />
       </div>
     </div>
