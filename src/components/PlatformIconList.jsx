@@ -19,7 +19,7 @@ function PlatformIconList({ platforms }) {
 
     return (
         <div className='flex gap-2 flex-wrap mb-2'>
-            {platforms.map(p => {
+            {platforms?.map(p => {
                 const Icon = iconMap[p.slug];
                 return Icon ? <Icon key={p.id} className='text-white w-4 h-4'/> : null;
             } )}
