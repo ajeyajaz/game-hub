@@ -1,5 +1,3 @@
-import useData from './useData';
+import platforms from '../Data/platform'
 
-
-
-export default () => useData('/platforms/lists/parents');
+export default () => ({ data: platforms, isLoading: false, error: null });
