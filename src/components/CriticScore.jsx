@@ -1,6 +1,7 @@
 
 function CriticScore({ score }) {
 
+    if(!score) return null;
     const color = score > 75 ? ' border-green-900 text-green-400': ' border-yellow-700 text-yellow-400';
 
     return (
