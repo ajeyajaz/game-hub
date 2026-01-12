@@ -8,12 +8,14 @@ import SortSelector from "./components/SortSelector";
 function App() {
   const [gameQuery, setGameQuery] = useState({});
 
+  console.log(gameQuery);
+
   return (
     <div className="grid lg: grid-cols-5">
 
       {/* nav */}
       <div className="col-span-full">
-        <NavBar />
+        <NavBar setGameQuery={(search)=> setGameQuery({...gameQuery, search})}/>
       </div>
 
       {/* sideBar */}
