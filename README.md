@@ -1,16 +1,40 @@
-# React + Vite
+# 🎮 GameHub – Video Game Discovery Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: https://game-hub-mauve-zeta.vercel.app  
+Tech Stack: React,Tailwind CSS, RAWG API
 
-Currently, two official plugins are available:
+GameHub is a responsive web application that allows users to discover, search, and explore video games by genre, platform, and rating. It provides a clean and modern UI with smooth user experience, loading skeletons, and real-time data from the RAWG API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Search games by name  
+- Filter by genre and platform  
+- Sort games by rating and relevance  
+- Loading skeletons for better UX  
+- Fully responsive design  
+- Error handling for failed API requests  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend:** React 
+- **Styling:** Tailwind CSS  
+- **API:** RAWG Video Games Database API  
+- **Build Tool:** Vite  
+- **Deployment:** Vercel  
+
+---
+
+
+## Project Setup
+
+To run this project locally:
+
+```bash
+git clone https://github.com/ajeyajaz/game-hub.git
+cd gamehub
+npm install
+npm run dev
