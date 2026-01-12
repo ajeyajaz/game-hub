@@ -1,8 +1,52 @@
 @import "tailwindcss";
 
-@layer base{
+@layer base {
 
-    body{
-        @apply bg-[#151515] text-white pl-4;
+    body {
+        @apply bg-[#151515] text-white;
     }
+}
+
+
+@layer utilities {
+
+    .game-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "nav nav" "main main";
+        padding: 10px;
+    }
+
+    .nav {
+        grid-area: nav;
+    }
+
+    .side-bar {
+        grid-area: side-bar;
+        display: none;
+        max-width: 250x;
+        padding-right: 5px;
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+
+
+    @media screen and (min-width: 1024px) {
+
+        .game-grid {
+            grid-template-areas: "nav nav" "side-bar main";
+            padding: 10px 5px 10px 40px
+        }
+
+        .side-bar{
+            display: block;
+        }
+    }
+
+
+
+
 }
