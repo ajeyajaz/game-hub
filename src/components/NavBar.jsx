@@ -10,7 +10,8 @@ function NavBar({ setGameQuery }) {
                 </div>
                 <InputSearch
                     className='border border-gray-600 w-full max-w-xl mx-auto rounded-xl px-2 py-1 focus-within:border-gray-400'
-                    onSearch={setGameQuery} />
+                    onSearch={setGameQuery}
+                    placeHolder='Search games...' />
             </nav>
         </>
     )
