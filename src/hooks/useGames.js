@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from '../services/api-client';
+import gameService from "../services/game-service";
 
 const useGames = (gameQuery) => {
 
@@ -11,19 +11,15 @@ const useGames = (gameQuery) => {
             gameQuery.genre?.name || '',
             gameQuery.ordering?.value || ''      
         ],
-        queryFn: () => (
-            axios.get('/games', 
-                {
-                    params: {
+        queryFn: () => gameService.getAll(
+            {
+                params: {
                         genres: gameQuery.genre?.id,
                         parent_platforms: gameQuery.platform?.id,
                         ordering: gameQuery.ordering?.value,
                         search: gameQuery.search
                     }
-            })
-                .then(res => res.data)
-        ),
-
+        }),
     })
 }
 
