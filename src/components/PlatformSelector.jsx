@@ -14,7 +14,7 @@ function PlatformSelector({ setGameQuery, selectedPlatform }) {
                 itemClassName="py-1 px-2 hover:bg-black/10"
                 onSelect={setGameQuery}
 
-                options={platforms.map(p => ({ id: p.id, label: p.name, value: p.slug }))}
+                options={platforms?.results.map(p => ({ id: p.id, label: p.name, value: p.slug }))}
             >
                 {selectedPlatform ? selectedPlatform.label : 'Platforms'}
             </DropDown>
