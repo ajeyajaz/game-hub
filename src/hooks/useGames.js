@@ -1,12 +1,30 @@
-import useData from "./useData";
+import { useQuery } from "@tanstack/react-query";
+import axios from '../services/api-client';
 
-const useGames = (gameQuery) => useData('/games',
-    {
-        params: {
-            genres: gameQuery.genre?.id,
-            parent_platforms: gameQuery.platform?.id,
-            ordering: gameQuery.ordering?.value,
-            search: gameQuery.search
-        }
-    }, [gameQuery.genre?.id, gameQuery.platform?.id, gameQuery.ordering?.value, gameQuery.search]);
+const useGames = (gameQuery) => {
+
+    return useQuery({
+        queryKey: 
+        [
+            'games', 
+            gameQuery.platform?.value || '',
+            gameQuery.genre?.name || '',
+            gameQuery.ordering?.value || ''      
+        ],
+        queryFn: () => (
+            axios.get('/games', 
+                {
+                    params: {
+                        genres: gameQuery.genre?.id,
+                        parent_platforms: gameQuery.platform?.id,
+                        ordering: gameQuery.ordering?.value,
+                        search: gameQuery.search
+                    }
+            })
+                .then(res => res.data)
+        ),
+
+    })
+}
+
 export default useGames;

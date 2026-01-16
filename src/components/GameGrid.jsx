@@ -19,7 +19,7 @@ function GameGrid({ gameQuery }) {
                         <GameCardSkeleton />
                     </GameCardContainer>)
                 )}
-                {!isLoading && games.map(game => (
+                {!isLoading && games?.results.map(game => (
                     <GameCardContainer key={game.id} >
                         <GameCard game={game} />
                     </GameCardContainer>)
