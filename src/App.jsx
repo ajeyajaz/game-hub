@@ -7,7 +7,7 @@ import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
 function App() {
-  const [gameQuery, setGameQuery] = useState({});
+  const [gameQuery, setGameQuery] = useState({pageSize : 9});
 
   return (
     <div className="game-grid">
@@ -38,7 +38,7 @@ function App() {
           </div>
 
         </div>
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid gameQuery={gameQuery}/>
       </div>
     </div>
   )
