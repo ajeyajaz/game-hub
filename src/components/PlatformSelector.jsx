@@ -1,11 +1,11 @@
+import usePlatform from "../hooks/usePlatform";
 import usePlatforms from "../hooks/usePlatforms";
 import DropDown from './DropDown'
 
 function PlatformSelector({ setGameQuery, selectedPlatformId }) {
     const { data: platforms, error } = usePlatforms();
+    const {platform} = usePlatform(selectedPlatformId);
     
-    const platform = platforms?.results.find(p => p.id === selectedPlatformId)
-    console.log(platform, selectedPlatformId);
     if (error) return null
 
     return (
