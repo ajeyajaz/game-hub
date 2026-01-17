@@ -22,6 +22,7 @@ const useGames = (gameQuery) => {
                     page_size: gameQuery?.pageSize,
                 }
         }),
+        staleTime: 24 * 60 * 60 * 1000,
 
         getNextPageParam:(lastPage, allPages) => {
             if (!lastPage.next) return undefined;
