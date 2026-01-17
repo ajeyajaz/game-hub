@@ -4,18 +4,12 @@ import gameService from "../services/game-service";
 const useGames = (gameQuery) => {
 
     return useInfiniteQuery({
-        queryKey: 
-        [
-            'games', 
-            gameQuery.platform?.value || '',
-            gameQuery.genre?.name || '',
-            gameQuery.ordering?.value || '',    
-        ],
+        queryKey: ['games', gameQuery],
         queryFn: ({pageParam = 1}) => gameService.getAll(
             {
                 params: {
-                    genres: gameQuery.genre?.id,
-                    parent_platforms: gameQuery.platform?.id,
+                    genres: gameQuery.genreId,
+                    parent_platforms: gameQuery.platformId,
                     ordering: gameQuery.ordering?.value,
                     search: gameQuery.search,
                     page: pageParam,

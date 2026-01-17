@@ -19,7 +19,7 @@ function App() {
 
       {/* sideBar */}
       <div className="side-bar">
-        <GenreList setGameQuery={(genre) => setGameQuery({ ...gameQuery, genre })} selectedGenre={gameQuery.genre} />
+        <GenreList setGameQuery={(genre) => setGameQuery({ ...gameQuery, genreId : genre.id })} selectedGenreId={gameQuery.genreId} />
       </div>
 
       {/* main */}
@@ -29,11 +29,11 @@ function App() {
 
           <div className="flex gap-1">
             <PlatformSelector
-              setGameQuery={(platform) => setGameQuery({ ...gameQuery, platform })}
-              selectedPlatform={gameQuery.platform}
+              setGameQuery={(platform) => setGameQuery({ ...gameQuery, platformId : platform.id })}
+              selectedPlatformId={gameQuery.platformId}
             />
             <SortSelector
-              setGameQuery={(ordering) => setGameQuery({ ...gameQuery, ordering })}
+              setGameQuery={(ordering) => setGameQuery({ ...gameQuery, ordering : ordering.value })}
               selectedOrdering={gameQuery.ordering} />
           </div>
 

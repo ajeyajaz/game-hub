@@ -2,7 +2,7 @@ import useGenres from "../hooks/useGenres";
 import imageUrl from "../services/image-url";
 import Spinner from "./Spinner";
 
-function GenreList({ setGameQuery, selectedGenre }) {
+function GenreList({ setGameQuery, selectedGenreId }) {
     const { data: genres, error, isLoading } = useGenres();
 
     if (error) return null;
@@ -20,7 +20,7 @@ function GenreList({ setGameQuery, selectedGenre }) {
                             <img src={imageUrl(g.image_background)} alt="" className="w-full h-full object-cover" />
                         </div>
                         <button
-                            className={`text-left  ${selectedGenre?.id === g.id ? highlight : ''}`}
+                            className={`text-left  ${selectedGenreId === g.id? highlight : ''}`}
                             onClick={() => setGameQuery(g)}
                         >
                             {g.name}
